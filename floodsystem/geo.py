@@ -6,4 +6,13 @@ geographical data.
 
 """
 
-from .utils import sorted_by_key  # noqa
+from haversine import haversine, Unit
+
+from floodsystem.utils import sorted_by_key  # noqa
+
+
+def stations_by_distance(stations, p):
+    distances = []
+    for station in stations:
+        distances.append((station.name, station.town, haversine(station.coord, p)))
+    return sorted_by_key(distances, 2)
