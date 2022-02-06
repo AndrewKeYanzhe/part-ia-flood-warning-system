@@ -42,4 +42,13 @@ def test_stations_by_distance():
                         ('station1', 'a1', haversine((0.0, 0.0), (0.0, 1.0))),
                         ('station3', 'a3', haversine((2.0, 0.0), (0.0, 0.0)))]
 
-test_stations_by_distance()
+# test_stations_by_distance()
+
+def test_rivers_with_station():
+    rivers_with_stations = rivers_with_station(test_stations)
+    assert rivers_with_stations == ["x1", "x2", "x3"]
+
+
+def test_stations_by_river():
+    stations_of_rivers = stations_by_river(test_stations)
+    assert stations_of_rivers == {"x3": ["station3"], "x2": ["station2"], "x1": ["station1"]}
