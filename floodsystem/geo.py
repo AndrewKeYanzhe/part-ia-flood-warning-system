@@ -22,6 +22,7 @@ def stations_within_radius(stations, centre, r):
     stations_satisfied = []
     if r < 0:
         raise ValueError("ValueError")
+
     for i in stations_centre:
         if i[2] <= r:
             stations_satisfied.append(i[0])
