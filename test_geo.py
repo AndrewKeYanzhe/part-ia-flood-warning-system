@@ -1,7 +1,7 @@
 from haversine import haversine
 
 from floodsystem.station import MonitoringStation
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import *
 
 
 
@@ -46,8 +46,10 @@ def test_stations_by_distance():
 
 def test_rivers_with_station():
     rivers_with_stations = rivers_with_station(test_stations)
-    assert rivers_with_stations == ["x1", "x2", "x3"]
+    # print(rivers_with_stations)
+    assert sorted(rivers_with_stations) == ["x1", "x2", "x3"]
 
+# test_rivers_with_station()
 
 def test_stations_by_river():
     stations_of_rivers = stations_by_river(test_stations)
