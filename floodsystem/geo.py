@@ -10,7 +10,6 @@ from haversine import haversine, Unit
 
 from floodsystem.utils import sorted_by_key  # noqa
 
-
 def stations_by_distance(stations, p):
     distances = []
     for station in stations:
