@@ -43,3 +43,14 @@ def test_stations_by_distance():
                         ('station3', 'a3', haversine((2.0, 0.0), (0.0, 0.0)))]
 
 test_stations_by_distance()
+
+
+#test geo (Task1C)
+from floodsystem.geo import stations_within_radius
+
+def test_stations_within_radius():
+    radius = stations_within_radius(test_stations, (0.0, 0.0), 1000)
+    #print(haversine((0.0, 0.0), (0.0, 1.0)), 0.0, haversine((2.0, 0.0), (0.0, 0.0)))
+    assert radius == ['station2', 'station1', 'station3']
+
+test_stations_within_radius()
