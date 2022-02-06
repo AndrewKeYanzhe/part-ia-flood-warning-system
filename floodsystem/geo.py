@@ -17,7 +17,6 @@ def stations_by_distance(stations, p):
     return sorted_by_key(distances, 2)
 
 
-
 def stations_within_radius(stations, centre, r):
     stations_centre = stations_by_distance(stations, centre)
     stations_satisfied = []
