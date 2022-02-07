@@ -1,7 +1,7 @@
 from haversine import haversine
 
 from floodsystem.station import MonitoringStation
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import *
 
 
 
@@ -42,15 +42,27 @@ def test_stations_by_distance():
                         ('station1', 'a1', haversine((0.0, 0.0), (0.0, 1.0))),
                         ('station3', 'a3', haversine((2.0, 0.0), (0.0, 0.0)))]
 
-test_stations_by_distance()
+#test_stations_by_distance()
 
 
 #test geo (Task1C)
-from floodsystem.geo import stations_within_radius
+#from floodsystem.geo import stations_within_radius
 
 def test_stations_within_radius():
     radius = stations_within_radius(test_stations, (0.0, 0.0), 1000)
     #print(haversine((0.0, 0.0), (0.0, 1.0)), 0.0, haversine((2.0, 0.0), (0.0, 0.0)))
     assert radius == ['station2', 'station1', 'station3']
 
-test_stations_within_radius()
+# test_stations_within_radius()
+# test_stations_by_distance()
+
+def test_rivers_with_station():
+    rivers_with_stations = rivers_with_station(test_stations)
+    # print(rivers_with_stations)
+    assert sorted(rivers_with_stations) == ["x1", "x2", "x3"]
+
+# test_rivers_with_station()
+
+def test_stations_by_river():
+    stations_of_rivers = stations_by_river(test_stations)
+    assert stations_of_rivers == {"x3": ["station3"], "x2": ["station2"], "x1": ["station1"]}
