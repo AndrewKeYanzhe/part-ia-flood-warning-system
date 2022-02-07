@@ -47,13 +47,13 @@ class MonitoringStation:
         else:
             return True
 
-    def inconsistent_typical_range_stations(stations):
-        inconsistent = []
-        for station in stations:
-            condition = MonitoringStation.typical_range_consistent(station)
-            if condition == False:
-                inconsistent.append(stations.name)
-        inconsistent.sort()
-        return inconsistent
+def inconsistent_typical_range_stations(stations):
+    inconsistent = []
+    for station in stations:
+        condition = MonitoringStation.typical_range_consistent(station)
+        if condition == False:
+            inconsistent.append(stations.name)
+    inconsistent.sort()
+    return inconsistent
 
 
