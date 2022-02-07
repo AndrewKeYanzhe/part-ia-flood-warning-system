@@ -47,6 +47,7 @@ class MonitoringStation:
         else:
             return True
 
+
 def inconsistent_typical_range_stations(stations):
     inconsistent = []
     for station in stations:
