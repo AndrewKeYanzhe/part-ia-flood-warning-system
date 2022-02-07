@@ -66,3 +66,10 @@ def test_rivers_with_station():
 def test_stations_by_river():
     stations_of_rivers = stations_by_river(test_stations)
     assert stations_of_rivers == {"x3": ["station3"], "x2": ["station2"], "x1": ["station1"]}
+
+#1E
+def test_rivers_by_station_number():
+    rivers_with_most_stations = rivers_by_station_number(test_stations, 2)
+    print(rivers_with_most_stations)
+    assert len(rivers_with_most_stations) == 3
+# test_rivers_by_station_number()
