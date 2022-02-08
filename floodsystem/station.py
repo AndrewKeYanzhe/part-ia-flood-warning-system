@@ -53,6 +53,7 @@ def inconsistent_typical_range_stations(stations):
     for station in stations:
         if MonitoringStation.typical_range_consistent(station) == False:
             inconsistent.append(station.name)
+    inconsistent.sort()
     return inconsistent
 
 
