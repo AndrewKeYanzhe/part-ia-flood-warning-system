@@ -57,6 +57,7 @@ river4 = "River4"
 town4 = "Town4"
 s4 = MonitoringStation(s_id4, m_id4, label4, coord4, trange4, river4, town4)
 
+test_stations = [s2, s3, s4]
 
 def test_typical_range_consistent():
     condition1 = MonitoringStation.typical_range_consistent(s2)
@@ -69,10 +70,37 @@ def test_typical_range_consistent():
 
 
 def test_inconsistent_typical_range_stations():
-    conditions = [MonitoringStation.typical_range_consistent(s2),
-                 MonitoringStation.typical_range_consistent(s3),
-                 MonitoringStation.typical_range_consistent(s4)]
-    test = inconsistent_typical_range_stations(conditions)
-    assert test == ['station2', 'station4']
+    s_id1 = "test_s_id1"
+    m_id1 = "test_m_id1"
+    label1 = "station1"
+    coord1 = (0.0, 1.0)
+    trange1 = (3.4, 1.2)
+    river1 = "x1"
+    town1 = "a1"
 
-test_typical_range_consistent()
+    s_id2 = "test_s_id2"
+    m_id2 = "test_m_id2"
+    label2 = "station2"
+    coord2 = (0.0, 0.0)
+    trange2 = (0.4, 1.2)
+    river2 = "x2"
+    town2 = "a2"
+
+    s_id3 = "test_s_id3"
+    m_id3 = "test_m_id3"
+    label3 = "station3"
+    coord3 = (2.0, 0.0)
+    trange3 = (10, 2.4)
+    river3 = "x3"
+    town3 = "a3"
+
+    a = MonitoringStation(s_id1, m_id1, label1, coord1, trange1, river1, town1)
+    b = MonitoringStation(s_id2, m_id2, label2, coord2, trange2, river2, town2)
+    c = MonitoringStation(s_id3, m_id3, label3, coord3, trange3, river3, town3)
+
+    station = [a, b, c]
+    outcome = inconsistent_typical_range_stations(station)
+    print(outcome)
+    assert outcome == ['station1', 'station3']
+
+# test_inconsistent_typical_range_stations()
