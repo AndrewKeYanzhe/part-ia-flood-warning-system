@@ -12,4 +12,9 @@ def test_stations_level_over_threshold():
     # originally intended to assert values, but then realised that this is not possible. this function calls update_water_levels in "stationdata.py" which resets latest_level to "none" if realtime dataset does not contain data for that station
 
     #hence the function is simply called to see if it runs
-test_stations_level_over_threshold()
+# test_stations_level_over_threshold()
+
+def test_stations_highest_rel_level():
+    stations = build_station_list()
+    riskiest_stations = stations_highest_rel_level(stations, 5)
+# test_stations_highest_rel_level()
