@@ -15,6 +15,7 @@ def run():
 
     # Station name to find
     station_name = "Cam"
+    station_name = "Letcombe Bassett"
     # station_name = "Cae Howel" #the "Cam" station has no level data on 27 Feb 2022, so another station is used to verify that the function is indeed working
 
     # Find station
