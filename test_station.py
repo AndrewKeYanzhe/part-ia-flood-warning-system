@@ -102,5 +102,20 @@ def test_inconsistent_typical_range_stations():
     outcome = inconsistent_typical_range_stations(station)
     print(outcome)
     assert outcome == ['station1', 'station3']
-
 # test_inconsistent_typical_range_stations()
+
+
+def test_relative_water_level():
+    s_id2 = "test-s-id2"
+    m_id2 = "test-m-id2"
+    label2 = "station2"
+    coord2 = (-2.0, 4.0)
+    trange2 = (-2.3, 3.4445)
+    river2 = "River2"
+    town2 = "Town2"
+    s2 = MonitoringStation(s_id2, m_id2, label2, coord2, trange2, river2, town2)
+    s2.latest_level = 1
+    # print(s2.relative_water_level())
+    # print(type(s2.relative_water_level()))
+    assert s2.relative_water_level() == 0.5744625293759247
+# test_relative_water_level()
