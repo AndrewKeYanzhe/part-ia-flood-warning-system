@@ -15,6 +15,7 @@ def run():
 
     # Station name to find
     station_name = "Cam"
+    # station_name = "Cae Howel" #the "Cam" station has no level data on 27 Feb 2022, so another station is used to verify that the function is indeed working
 
     # Find station
     station_cam = None
@@ -41,6 +42,10 @@ def run():
     dt = 2
     dates, levels = fetch_measure_levels(
         station_cam.measure_id, dt=datetime.timedelta(days=dt))
+    
+    if len(dates) == 0:
+        print("no historical data")
+    # print(len(dates))
 
     # Print level history
     for date, level in zip(dates, levels):
