@@ -44,5 +44,5 @@ def plot_water_level_with_fit(station, dates, levels, p):
     plt.xticks(rotation=45)
     plt.tight_layout()
 
-
+    plt.show()
 
