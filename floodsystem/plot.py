@@ -26,8 +26,10 @@ def plot_water_levels(station, dates, levels):
 def plot_water_level_with_fit(station, dates, levels, p):
 
    if len(dates) != 0 and len(levels) != 0:
-       poly, d0 = polyfit(dates, levels, p)
        dates = matplotlib.dates.date2num(dates)
+       dates = dates - dates[0]
+       poly, d0 = polyfit(dates, levels, p)
+       
 
        plt.plot(dates, levels, label="water level")
        plt.plot(dates, poly(dates), label="best-fit polynomial")
