@@ -25,24 +25,43 @@ def plot_water_levels(station, dates, levels):
 
 def plot_water_level_with_fit(station, dates, levels, p):
 
-    poly, d0 = polyfit(dates, levels, p)
-    dates = matplotlib.dates.date2num(dates)
+   if len(dates) != 0 and len(levels) != 0:
+       poly, d0 = polyfit(dates, levels, p)
+       dates = matplotlib.dates.date2num(dates)
 
-    plt.plot(dates, levels, label="water level")
-    plt.plot(dates, poly(dates), label="best-fit polynomial")
-    plt.xlabel('Date')
-    plt.ylabel('Water Level(m)')
-    plt.title(station.name)
-    typical_low = []
-    typical_high = []
-    for i in range(0, len(dates)):
-        typical_low.append(station.typical_range[0])
-        typical_high.append(station.typical_range[1])
-    plt.plot(dates, typical_low, label="Typical Low")
-    plt.plot(dates, typical_high, label="Typical High")
-    plt.legend()
-    plt.xticks(rotation=45)
-    plt.tight_layout()
+       plt.plot(dates, levels, label="water level")
+       plt.plot(dates, poly(dates), label="best-fit polynomial")
+       plt.xlabel('Date')
+       plt.ylabel('Water Level(m)')
+       plt.title(station.name)
+       typical_low = []
+       typical_high = []
+       for i in range(0, len(dates)):
+           typical_low.append(station.typical_range[0])
+           typical_high.append(station.typical_range[1])
+       plt.plot(dates, typical_low, label="Typical Low")
+       plt.plot(dates, typical_high, label="Typical High")
+       plt.legend()
+       plt.xticks(rotation=45)
+       plt.tight_layout()
 
-    plt.show()
+       plt.show()
+
+   else:
+       # if the list is empty (the data of a station is incorrect), plot an empty chart
+       plt.plot(dates, levels)
+       plt.xlabel('Date')
+       plt.ylabel('Water Level/m')
+       plt.title(station.name)
+       typical_low = []
+       typical_high = []
+       for i in range(0, len(dates)):
+           typical_low.append(station.typical_range[0])
+           typical_high.append(station.typical_range[1])
+       plt.plot(dates, typical_low, label="Typical Low")
+       plt.plot(dates, typical_high, label="Typical High")
+       plt.xticks(rotation=45)
+       plt.tight_layout()
+
+       plt.show()
 
