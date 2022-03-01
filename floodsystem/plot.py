@@ -40,10 +40,9 @@ def plot_water_level_with_fit(station, dates, levels, p):
         typical_high.append(station.typical_range[1])
     plt.plot(dates, typical_low, label="Typical Low")
     plt.plot(dates, typical_high, label="Typical High")
+    plt.legend()
     plt.xticks(rotation=45)
     plt.tight_layout()
-
-    plt.show()
 
 
 

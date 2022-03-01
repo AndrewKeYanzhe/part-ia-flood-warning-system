@@ -26,3 +26,16 @@ def stations_highest_rel_level(stations, N):
             N_stations_list.append((station.name, station.relative_water_level()))
     N_stations_list = sorted_by_key(N_stations_list, 1, reverse = True)
     return N_stations_list[:N]
+
+
+def stations_highest_rel_level2(stations, N):
+    stations_list = []
+    update_water_levels(stations)
+    for station in stations:
+        if station.relative_water_level() is not None:
+            stations_list.append((station.name, station.relative_water_level()))
+    stations_list = sorted_by_key(stations_list, 1, reverse = True)
+    listID = []
+    for datas in stations_list:
+        listID.append(datas[0])
+    return list[:N]

@@ -2,12 +2,12 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.datafetcher import fetch_measure_levels
 import datetime
 from floodsystem.plot import plot_water_level_with_fit
-from floodsystem.flood import stationsId_highest_rel_level
+from floodsystem.flood import stations_highest_rel_level2
 
 
 def run():
     stations = build_station_list()
-    highest = stationsId_highest_rel_level(stations, 5)
+    highest = stations_highest_rel_level2(stations, 5)
     dt = 2
     for station in highest:
         data = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
